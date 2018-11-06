@@ -24,3 +24,7 @@ via a player to player connection.
 # Team Members
 Joseph Duggan
 Caleb Smith
+
+# Comments
+1. Have a better formatting of the Time Table
+2. Be more specific about the deliverables. What are the features of the client/server? Think about what you are going to demo in the final presentation to compile a list of features to be delivered.
