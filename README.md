@@ -10,8 +10,10 @@ We both enjoy the game and think it will be a cool exercise to both code the act
 Java has a plugin called javaFX that will allow us to create a game board and create a UI for the game, and we also will be able to code the player to player connection in java.
 
 # Deliverables
-A completed battleship game that will be able to be played other multiple computers
-via a player to player connection.
+A peer to peer connection tht sends real time commands back and forth between two players
+a completed battleship game that will run in the demo
+the demo will show a running version of the game
+demo will show the two clients sending info back and forth
 
 # Time Table
 11/2 Figure out how to connect two computers in java
