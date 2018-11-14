@@ -11,21 +11,21 @@ Java has a plugin called javaFX that will allow us to create a game board and cr
 
 # Deliverables
 A server that will run the game and send information to the client
-\na client that will connect to the server
-\na working version of a battleship game
-\n(if there is enough time we will make the game board in javafx, if there isn't
-\nwe will print the game board to the cosole.)
-\nthe demo will show the client server connection
-\nthe demo will show the game being run by the server and having it sent to the client
+* a client that will connect to the server
+* a working version of a battleship game
+* (if there is enough time we will make the game board in javafx, if there isn't
+* we will print the game board to the cosole.)
+* the demo will show the client server connection
+* the demo will show the game being run by the server and having it sent to the client
 
 
 # Time Table
-11/2 Figure out how to connect two computers in java
-\n11/9 have a rough prototype of the game board UI
-\n11/16 start implementing the game rules
-\n11/23 take user input from other computer and use it in the game
-\n11/30 Improve the gameboard and connect the game to the UI
-\n12/7 Hopefully have a finished product
+* 11/2 Figure out how to connect two computers in java
+* 11/9 have a rough prototype of the game board UI
+* 11/16 start implementing the game rules
+* 11/23 take user input from other computer and use it in the game
+* 11/30 Improve the gameboard and connect the game to the UI
+* 12/7 Hopefully have a finished product
 
 # Team Members
 Joseph Duggan
