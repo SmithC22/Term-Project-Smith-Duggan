@@ -29,7 +29,7 @@ public class Board {
              }
        }
        
-       public void placeShip(int x1, int y1, int x2, int y2) {
+       public static void placeShip(int x1, int y1, int x2, int y2) {
     	   if (x1 == x2) {
     		   while (y1 <= y2) {
     			   battleShipBoard[x1][y1] = shipSpace;
@@ -44,75 +44,17 @@ public class Board {
     	   }
        }
        
-       public static boolean placeDestroyer(int x1, int y1, int x2, int y2, Board b) {
-    	   if (((x2 - x1)+1) == 2) {
-    		   b.placeShip(x1,y1,x2,y2);
+       public static boolean checkShip(int x1, int y1, int x2, int y2, int size) {
+    	   if (((x2 - x1)+1) == size) {
     		   return true;
     	   }
-    	   else if (((y2 - y1)+1) == 2) {
-    		   b.placeShip(x1,y1,x2,y2);
+    	   else if (((y2 - y1)+1) == size) {
     		   return true;
     	   }
     	   else {
     		   return false;
     	   }
     	   
-       }
-       
-       public static boolean placeSubmarine(int x1, int y1, int x2, int y2, Board b) {
-    	   if (((x2 - x1)+1) == 3) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else if (((y2 - y1)+1) == 3) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else {
-    		   return false;
-    	   }
-       }
-       
-       public static boolean placeCruiser(int x1, int y1, int x2, int y2, Board b) {
-    	   if (((x2 - x1)+1) == 3) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else if (((y2 - y1)+1) == 3) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else {
-    		   return false;
-    	   }
-       }
-       
-       public static boolean placeBattleship(int x1, int y1, int x2, int y2, Board b) {
-    	   if (((x2 - x1)+1) == 4) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else if (((y2 - y1)+1) == 4) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else {
-    		   return false;
-    	   }
-       }
-       
-       public static boolean placeCarrier(int x1, int y1, int x2, int y2, Board b) {
-    	   if (((x2 - x1)+1) == 5) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else if (((y2 - y1)+1) == 5) {
-    		   b.placeShip(x1,y1,x2,y2);
-    		   return true;
-    	   }
-    	   else {
-    		   return false;
-    	   }
        }
    
        public String toString() {
@@ -129,7 +71,7 @@ public class Board {
        public static void main(String[] args) {
              Board b = new Board();
              b.fillEmpty();
-             placeCarrier(1, 2, 1, 6, b);
+             b.checkShip(1, 2, 1, 6, 5);
              System.out.print(b.toString());
        }
 }

@@ -22,18 +22,8 @@ public class Client {
 			String sentence = new String (dataInputStream.readUTF());
 				System.out.println(sentence);	
 				String words = input.nextLine();
-		if (words.equals("end")) {
-			dataOutStream.writeUTF("end");
-			streamOpen = false;
-			dataInputStream.close();
-			inputStream.close();
-			dataOutStream.close();
-			outStream.close();
-			socket.close();
-			} else {
-
 				dataOutStream.writeUTF(words);
 			}
-		} while (streamOpen);
+		 while (streamOpen);
 	}
 }
