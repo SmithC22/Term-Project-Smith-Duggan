@@ -1,7 +1,7 @@
 public class Board {
 
        private static final String empty = "~";
-       private static final String hit = "x";
+       private static final String hit = "X";
        private static final String miss = "o";
        private static final String shipSpace = "S";
        private static final int numRows = 10;
@@ -19,9 +19,33 @@ public class Board {
                     }
              }
        }
+       
+       public boolean hitEmptyBoard(int r, int c) {
+    	   if(battleShipBoard[r][c].equals("~")) {
+    		   battleShipBoard[r][c] = "X";
+    		   System.out.println("Hit!");
+    		   return true;
+    	   }
+    	   else {
+    		   System.out.println("Miss!");
+    		   return false;
+    		   }
+       }
+       
+       public boolean hit(int r, int c) {
+    	   if(battleShipBoard[r][c].equals("S")) {
+    		   battleShipBoard[r][c] = "X";
+    		   System.out.println("Hit!");
+    		   return true;
+    	   }
+    	   else {
+    		   System.out.println("Miss!");
+    		   return false;
+    		   }
+    	   }
       
        public boolean isHit(int r, int c) {
-             if(battleShipBoard[r][c].equals("x")) {
+             if(battleShipBoard[r][c].equals("X")) {
                     return true;
              }
              else {
@@ -71,6 +95,7 @@ public class Board {
        public static void main(String[] args) {
              Board b = new Board();
              b.fillEmpty();
+
              b.checkShip(1, 2, 1, 6, 5);
              System.out.print(b.toString());
        }
