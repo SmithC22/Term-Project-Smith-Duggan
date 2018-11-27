@@ -31,6 +31,12 @@ A server that will run the game and send information to the client
 Joseph Duggan
 Caleb Smith
 
+# Getting Started
+
+# 
+
+# Demo
+
 # Comments
 1. Have a better formatting of the Time Table
 2. Be more specific about the deliverables. What are the features of the client/server? Think about what you are going to demo in the final presentation to compile a list of features to be delivered.
