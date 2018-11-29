@@ -24,19 +24,16 @@ public class Client {
 			sentence = dataInputStream.readUTF();
 				System.out.println(sentence);
 				
-				if ((sentence.charAt(0) != 'W') && (sentence.charAt(0) != 'H') && (sentence.charAt(0) != 'M') && (sentence.charAt(0) != 'S')) {
+				if(sentence.charAt(sentence.length()-1) == 'g') {
+					streamOpen = false;
+				}
+				
+				else if ((sentence.charAt(0) != 'W') && (sentence.charAt(0) != 'H') && (sentence.charAt(0) != 'M') && (sentence.charAt(0) != 'S')) {
 				String words = input.nextLine();
 				dataOutStream.writeUTF(words);
 				}
 			}
 		 while (streamOpen);
 		
-		// prints waiting message
-		sentence = dataInputStream.readUTF();
-		System.out.println(sentence);
-		
-		// prints boards and begins game loop
-		sentence = dataInputStream.readUTF();
-		System.out.println(sentence);
 	}
 }

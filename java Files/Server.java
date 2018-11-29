@@ -34,7 +34,7 @@ public class Server {
 			
 		// loop that places client ships on client board	
 		System.out.println("Waiting for "+clientResponse+" to place ships...");	
-		for (int size = 5; size > 1; size--) {
+		for (int size = 5; size > 4; size--) {
 			
 		String ship;
 		
@@ -78,7 +78,7 @@ public class Server {
 		// loop that places server ships on server board	
 		dataOutStream.writeUTF("Waiting for "+serverName+" to place ships...");
 		
-		for (int size = 5; size > 1; size--) {
+		for (int size = 5; size > 4; size--) {
 		
 		System.out.print(serverP.playerBoard.toString() + "\nEnter coordinates to place ship (Length "+size+")\nStart Row: ");
 		int x1 = input.nextInt()-1;
@@ -125,7 +125,7 @@ public class Server {
 			
 			if (serverP.Hit(row-1, column-1)) {
 				dataOutStream.writeUTF("Hit!\n"+serverName+" is choosing a coordinate to hit...\n");
-				System.out.println("Ship was hit at (" +row+1+","+column+1+")!");
+				System.out.println("Ship was hit at (" +row+","+column+")!");
 			} else {
 				dataOutStream.writeUTF("Miss!\n"+serverName+" is choosing a coordinate to hit...\n");
 				System.out.println("Shot missed!");
