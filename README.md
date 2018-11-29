@@ -32,8 +32,16 @@ Joseph Duggan
 Caleb Smith
 
 # Getting Started
+* Install the server1, client, client1, player, and board classes in order to run it.
+* First one person runs the server class and then two people connect to it by 
+* one of them running the client class and the other running the client1 class
+* then the server will send prompts to the clients which will be used to run the game.
+* From there everything will be done automatically by the server
 
-# 
+# Features
+* Running a working battleship game on a client-server architecture where the server
+* Connects to two clients and sends them information and takes in names and ship-placements
+* and uses other inputs from the clients to know where to'fire' on the opponents board
 
 # Demo
 
