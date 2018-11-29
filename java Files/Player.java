@@ -30,9 +30,13 @@ public class Player {
 	}
 	
 	public void Hit(int r, int c) {
-		score--;
-		playerBoard.hit(r, c);
-		hitBoard.hitEmptyBoard(r, c);
+		if(playerBoard.hit(r, c)) {
+			score--;
+			hitBoard.hitEmptyBoard(r, c);
+		}
+		else {
+			hitBoard.missEmptyBoard(r, c);
+		}
 	}
 	
 	public boolean lost() {

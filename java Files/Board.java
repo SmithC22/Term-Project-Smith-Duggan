@@ -20,16 +20,13 @@ public class Board {
              }
        }
        
-       public boolean hitEmptyBoard(int r, int c) {
-    	   if(battleShipBoard[r][c].equals("~")) {
-    		   battleShipBoard[r][c] = "X";
-    		   System.out.println("Hit!");
-    		   return true;
-    	   }
-    	   else {
-    		   System.out.println("Miss!");
-    		   return false;
-    		   }
+       public void hitEmptyBoard(int r, int c) {
+		   battleShipBoard[r][c] = hit;
+	  
+       }
+   
+       public void missEmptyBoard(int r, int c) {
+	   battleShipBoard[r][c] = miss;
        }
        
        public boolean hit(int r, int c) {
@@ -110,14 +107,17 @@ public class Board {
        }
    
        public String toString() {
-             String returnString  = "";
-             for (int i=0;i<numRows;i++) {
-                    for (int j = 0;j<numCols; j++) {
-                           returnString += "[" + battleShipBoard[i][j] + "] ";
-                    }
-                    returnString += "\n";
-             }
-             return returnString;
+    	   String returnString  = "";
+           System.out.println("   0   1   2   3   4   5   6   7");
+           for (int i=0;i<numRows;i++) {
+          	 	returnString += i+" ";
+                  for (int j = 0;j<numCols; j++) {
+                  	   
+                         returnString += "[" + battleShipBoard[i][j] + "] ";
+                  }
+                  returnString += "\n";
+           }
+           return returnString;
        }
  
        public static void main(String[] args) {
