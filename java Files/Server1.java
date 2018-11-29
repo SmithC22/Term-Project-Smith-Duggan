@@ -186,5 +186,11 @@ public class Server1 {
 		}
 		
 		System.out.println("Game is over. Exiting.");
+		dataOutStream1.close();
+		socket1.close();
+		serverSocket1.close();
+		dataOutStream2.close();
+		socket2.close();
+		serverSocket2.close();
 	}
 }

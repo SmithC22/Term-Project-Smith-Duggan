@@ -35,5 +35,9 @@ public class Client1 {
 			}
 		 while (streamOpen);
 		
+		dataInputStream.close();
+		inputStream.close();
+		socket.close();
+		
 	}
 }
