@@ -17,13 +17,24 @@ public class Client {
 		OutputStream outStream = socket.getOutputStream();
 		DataOutputStream dataOutStream = new DataOutputStream(outStream);
 		
+		String sentence = "";
+		
+		// loop for placing ships
 		do {
-
-			String sentence = new String (dataInputStream.readUTF());
+			sentence = dataInputStream.readUTF();
 				System.out.println(sentence);	
 				String words = input.nextLine();
 				dataOutStream.writeUTF(words);
+				
 			}
-		 while (streamOpen);
+		 while (sentence.charAt(0) != 'W');
+		
+		// prints waiting message
+		sentence = dataInputStream.readUTF();
+		System.out.println(sentence);
+		
+		// prints boards and begins game loop
+		sentence = dataInputStream.readUTF();
+		System.out.println(sentence);
 	}
 }

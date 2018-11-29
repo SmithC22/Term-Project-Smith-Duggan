@@ -20,25 +20,10 @@ public class Player {
 		return playerBoard.isHit(r, c);
 	}
 	
-	public boolean placeDestroyerPlayer(int x1, int y1, int x2, int y2) {
-		return Board.placeDestroyer(x1, y1, x2, y2, playerBoard);
+	public void placeShip(int x1, int y1, int x2, int y2, int size) {
+		playerBoard.placeShip(x1, y1, x2, y2);
 	}
-	
-	public boolean placeSubmarinePlayer(int x1, int y1, int x2, int y2) {
-		return Board.placeSubmarine(x1, y1, x2, y2, playerBoard);
-	}
-	
-	public boolean placeCruiserPlayer(int x1, int y1, int x2, int y2) {
-		return Board.placeCruiser(x1, y1, x2, y2, playerBoard);
-	}
-	
-	public boolean placeBattleshipPlayer(int x1, int y1, int x2, int y2) {
-		return Board.placeBattleship(x1, y1, x2, y2, playerBoard);
-	}
-	
-	public boolean placeCarrierPlayer(int x1, int y1, int x2, int y2) {
-		return Board.placeCarrier(x1, y1, x2, y2, playerBoard);
-	}
+		
 	
 	public String getName() {
 		return name;
@@ -65,6 +50,10 @@ public class Player {
 	
 	public String returnHitBoard() {
 		return hitBoard.toString();
+	}
+
+	public boolean checkShip(int x1, int y1, int x2, int y2, int size) {	
+		return playerBoard.checkShip(x1, y1, x2, y2, size);
 	}
 	
 }

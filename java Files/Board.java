@@ -4,9 +4,9 @@ public class Board {
        private static final String hit = "X";
        private static final String miss = "o";
        private static final String shipSpace = "S";
-       private static final int numRows = 10;
-       private static final int numCols = 10;
-       private static String[][] battleShipBoard;
+       private static final int numRows = 8;
+       private static final int numCols = 8;
+       private String[][] battleShipBoard;
        
        public Board() {
              battleShipBoard = new String[numRows][numCols];
@@ -53,7 +53,7 @@ public class Board {
              }
        }
        
-       public static void placeShip(int x1, int y1, int x2, int y2) {
+       public void placeShip(int x1, int y1, int x2, int y2) {
     	   if (x1 == x2) {
     		   while (y1 <= y2) {
     			   battleShipBoard[x1][y1] = shipSpace;
@@ -68,16 +68,44 @@ public class Board {
     	   }
        }
        
-       public static boolean checkShip(int x1, int y1, int x2, int y2, int size) {
-    	   if (((x2 - x1)+1) == size) {
+       public boolean checkShip(int x1, int y1, int x2, int y2, int size) {
+    	   
+    	   // checks if coordinates are correct size
+    	   if (((x2 - x1)) == size-1 && (y1 == y2)) {
     		   return true;
     	   }
-    	   else if (((y2 - y1)+1) == size) {
+    	   else if (((y2 - y1)) == size-1 && (x1 == x2)) {
     		   return true;
     	   }
     	   else {
     		   return false;
     	   }
+    	  
+       }
+       
+       public boolean checkShipSpace(int x1, int y1, int x2, int y2) {
+    	   // checks if a ship is already placed at coordinates
+    	   if (x1 == x2) {
+    		   int temp_y = y1;
+    		   while (temp_y <= y2) {
+    			  if (battleShipBoard[x1][y1] == "S") {
+    			   return false;
+    			  }
+    			  temp_y++;
+    		   }
+    		   
+    	   }
+    	   else if (y1 == y2) {
+    		   int temp_x = x1;
+    		   while (temp_x <= x2) {
+    			   if (battleShipBoard[x1][y1] == "S") {
+    			   return false;
+    			   }
+    			   temp_x++;
+    		   }
+    		   
+    	   } 
+    		   return true;
     	   
        }
    
@@ -95,8 +123,11 @@ public class Board {
        public static void main(String[] args) {
              Board b = new Board();
              b.fillEmpty();
-
-             b.checkShip(1, 2, 1, 6, 5);
+             System.out.println(b.toString());
+             
+             if (b.checkShip(0, 1, 4, 1, 5) && b.checkShipSpace(0, 1, 4, 1))
+            	 b.placeShip(0, 1, 4, 1);
+             
              System.out.print(b.toString());
        }
 }
