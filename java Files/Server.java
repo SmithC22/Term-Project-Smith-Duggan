@@ -6,7 +6,6 @@ public class Server {
 	public static void main(String args[]) throws IOException {
 		
 		Scanner input = new Scanner(System.in);
-		Scanner guess = new Scanner(System.in);
 		boolean streamOpen = true;
 	
 		// Register service on port 6789
@@ -108,8 +107,10 @@ public class Server {
 		serverP.playerBoard.placeShip(x1, y1, x2, y2);
 		
 	}
-		int turn = 1;
+		dataOutStream.writeUTF("Your Board:\n"+clientP.returnPlayerBoard()+"\n"+serverName+"'s Board:\n"+clientP.returnHitBoard());
+		System.out.print("Your Board:\n"+serverP.returnPlayerBoard()+"\n"+clientResponse+"'s Board:\n"+serverP.returnHitBoard());
 		
+<<<<<<< HEAD
 		while(!serverP.lost() && !clientP.lost()) {
 			
 			
@@ -157,5 +158,7 @@ public class Server {
 			System.out.println(clientResponse+ " wins! Thanks for playing, exiting");
 			dataOutStream.writeUTF(clientResponse+ " wins! Thanks for playing, exiting");
 		}
+=======
+>>>>>>> 2e4cb2784afa31c9807a98d2f4f02e050b51250a
 	}
 }

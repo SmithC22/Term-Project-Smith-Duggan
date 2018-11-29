@@ -9,7 +9,7 @@ public class Client {
 		boolean streamOpen = true;
 		
 		// Open your connection to a server, at port 6789
-		String ip = "127.0.0.1";
+		String ip = "192.168.1.13";
 		Socket socket = new Socket(ip,6789);
 		// Get an input file handle from the socket and read the input
 		InputStream inputStream = socket.getInputStream();
