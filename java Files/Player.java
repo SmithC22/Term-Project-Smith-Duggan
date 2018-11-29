@@ -9,25 +9,11 @@ public class Player {
 	
 	public Player(String n){
 		name = n;
-		score = 14;
+		score = 5;
 		playerBoard = new Board();
 		playerBoard.fillEmpty();
 		hitBoard = new Board();
 		hitBoard.fillEmpty();
-	}
-	
-	public boolean checkHit(int r, int c) {
-		if ((1<=r && r<=8)&&(1<=c && 8<=c)) {
-			if(hitBoard.battleShipBoard[r-1][c-1].equals("~"))  {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
 	}
 	
 	public boolean isHitPlayer(int r, int c) {
