@@ -9,7 +9,7 @@ public class Player {
 	
 	public Player(String n){
 		name = n;
-		score = 5;
+		score = 14;
 		playerBoard = new Board();
 		playerBoard.fillEmpty();
 		hitBoard = new Board();

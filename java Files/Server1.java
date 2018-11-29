@@ -45,7 +45,7 @@ public class Server1 {
 			
 		// loop that places client ships on client board	
 		dataOutStream2.writeUTF("Waiting for "+client1+" to place ships...\n");	
-		for (int size = 5; size > 4; size--) {
+		for (int size = 5; size > 1; size--) {
 			
 		String ship;
 		
@@ -90,7 +90,7 @@ public class Server1 {
 		// loop that places server ships on server board	
 		dataOutStream1.writeUTF("Waiting for "+client2+" to place ships...");
 		
-		for (int size = 5; size > 4; size--) {
+		for (int size = 5; size > 1; size--) {
 		
 		dataOutStream2.writeUTF(client2P.playerBoard.toString() + "\nEnter coordinates to place ship (Length "+size+")\nStart Row: ");
 		ship = dataInputStream2.readUTF();
