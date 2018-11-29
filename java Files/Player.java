@@ -16,6 +16,20 @@ public class Player {
 		hitBoard.fillEmpty();
 	}
 	
+	public boolean checkHit(int r, int c) {
+		if ((1<=r && r<=8)&&(1<=c && 8<=c)) {
+			if(hitBoard.battleShipBoard[r-1][c-1].equals("~"))  {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public boolean isHitPlayer(int r, int c) {
 		return playerBoard.isHit(r, c);
 	}

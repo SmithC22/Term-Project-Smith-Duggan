@@ -6,7 +6,7 @@ public class Board {
        private static final String shipSpace = "S";
        private static final int numRows = 8;
        private static final int numCols = 8;
-       private String[][] battleShipBoard;
+       public String[][] battleShipBoard;
        
        public Board() {
              battleShipBoard = new String[numRows][numCols];

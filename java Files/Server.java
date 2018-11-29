@@ -6,7 +6,6 @@ public class Server {
 	public static void main(String args[]) throws IOException {
 		
 		Scanner input = new Scanner(System.in);
-		Scanner guess = new Scanner(System.in);
 		boolean streamOpen = true;
 	
 		// Register service on port 6789
@@ -108,54 +107,8 @@ public class Server {
 		serverP.playerBoard.placeShip(x1, y1, x2, y2);
 		
 	}
-		int turn = 1;
+		dataOutStream.writeUTF("Your Board:\n"+clientP.returnPlayerBoard()+"\n"+serverName+"'s Board:\n"+clientP.returnHitBoard());
+		System.out.print("Your Board:\n"+serverP.returnPlayerBoard()+"\n"+clientResponse+"'s Board:\n"+serverP.returnHitBoard());
 		
-		while(!serverP.lost() && !clientP.lost()) {
-			
-			
-			String coordinates;
-			
-			System.out.println(clientResponse+" is choosing a coordinate to hit...");
-			dataOutStream.writeUTF("Turn "+turn+ "\nYour Board:\n"+clientP.returnPlayerBoard()+"\n"+serverName+"'s Board:\n"+clientP.returnHitBoard()+"\nGuess your coordinates ('Row', 'Column'): ");
-			coordinates = dataInputStream.readUTF();
-			String x = coordinates.split(",")[0];
-			String y = coordinates.split(",")[1];
-			int row = Integer.parseInt(x);
-			int column = Integer.parseInt(y);
-			
-			if (serverP.Hit(row-1, column-1)) {
-				dataOutStream.writeUTF("Hit!\n"+serverName+" is choosing a coordinate to hit...\n");
-				System.out.println("Ship was hit at (" +row+1+","+column+1+")!");
-			} else {
-				dataOutStream.writeUTF("Miss!\n"+serverName+" is choosing a coordinate to hit...\n");
-				System.out.println("Shot missed!");
-			}
-			
-			System.out.println("Turn "+turn+ "\nYour Board:\n"+serverP.returnPlayerBoard()+"\n"+clientResponse+"'s Board:\n"+serverP.returnHitBoard()+"Guess your coodinates('Row', Column'): ");
-			String coordinatesS;
-			coordinatesS = guess.nextLine();
-			String xS = coordinatesS.split(",")[0];
-			String yS = coordinatesS.split(",")[1];
-			int rowS = Integer.parseInt(xS);
-			int columnS = Integer.parseInt(yS);
-			
-			if (clientP.Hit(rowS-1, columnS-1)) {
-				System.out.println("Hit!\n");
-				dataOutStream.writeUTF("Ship was hit at (" +rowS+","+columnS+")!");
-			} else {
-				System.out.println("Miss!\n");
-				dataOutStream.writeUTF("Shot missed!");
-			}
-			
-			turn++;
-		}
-		
-		if (clientP.lost()) {
-			System.out.println(serverName+ " wins! Thanks for playing, exiting");
-			dataOutStream.writeUTF(serverName+ " wins! Thanks for playing, exiting");
-		} else {
-			System.out.println(clientResponse+ " wins! Thanks for playing, exiting");
-			dataOutStream.writeUTF(clientResponse+ " wins! Thanks for playing, exiting");
-		}
 	}
 }
