@@ -28,7 +28,7 @@ A server that will run the game and send information to the client
 * 12/7 Hopefully have a finished product
 
 # Team Members
-Joseph Duggan
+Joseph Duggan,
 Caleb Smith
 
 # Getting Started
@@ -44,7 +44,7 @@ Caleb Smith
 * and uses other inputs from the clients to know where to'fire' on the opponents board
 
 # Demo
-* see BattleShip Demo.mp4
+* see BattleShipDemo.mp4
 
 # Comments
 1. Have a better formatting of the Time Table
