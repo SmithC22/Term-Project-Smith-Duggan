@@ -44,6 +44,7 @@ Caleb Smith
 * and uses other inputs from the clients to know where to'fire' on the opponents board
 
 # Demo
+* see BattleShip Demo.mp4
 
 # Comments
 1. Have a better formatting of the Time Table
