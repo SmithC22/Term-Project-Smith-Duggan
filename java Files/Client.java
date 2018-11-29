@@ -22,12 +22,14 @@ public class Client {
 		// loop for placing ships
 		do {
 			sentence = dataInputStream.readUTF();
-				System.out.println(sentence);	
+				System.out.println(sentence);
+				
+				if (sentence.charAt(0) != 'W') {
 				String words = input.nextLine();
 				dataOutStream.writeUTF(words);
-				
+				}
 			}
-		 while (sentence.charAt(0) != 'W');
+		 while (streamOpen);
 		
 		// prints waiting message
 		sentence = dataInputStream.readUTF();

@@ -107,8 +107,53 @@ public class Server {
 		serverP.playerBoard.placeShip(x1, y1, x2, y2);
 		
 	}
-		dataOutStream.writeUTF("Your Board:\n"+clientP.returnPlayerBoard()+"\n"+serverName+"'s Board:"+clientP.returnHitBoard());
-		System.out.print("Your Board:\n"+serverP.returnPlayerBoard()+"\n"+clientResponse+"'s Board:"+serverP.returnHitBoard());
 		
+		while(!serverP.lost() && !clientP.lost()) {
+			
+			int turn = 1;
+			String coordinates;
+			
+			System.out.println(clientResponse+" is choosing a coordinate to hit...");
+			dataOutStream.writeUTF("Turn "+turn+ "\nYour Board:\n"+clientP.returnPlayerBoard()+"\n"+serverName+"'s Board:\n"+clientP.returnHitBoard()+"\nGuess your coordinates ('Row', 'Column'): ");
+			coordinates = dataInputStream.readUTF();
+			String x = coordinates.split(",")[0];
+			String y = coordinates.split(",")[1];
+			int row = Integer.parseInt(x)-1;
+			int column = Integer.parseInt(y)-1;
+			
+			if (serverP.Hit(row, column)) {
+				dataOutStream.writeUTF("Hit!\n");
+				System.out.println("Ship was hit at (" +row+","+column+")!");
+			} else {
+				dataOutStream.writeUTF("Miss!\n");
+				System.out.println(clientResponse+ "'s shot missed!");
+			}
+			
+			dataOutStream.writeUTF(serverName+" is choosing a coordinate to hit...\n");
+			System.out.println("Turn "+turn+ "\nYour Board:\n"+serverP.returnPlayerBoard()+"\n"+clientResponse+"'s Board:\n"+serverP.returnHitBoard()+"Guess your coodinates('Row', Column')");
+			String coordinatesS = input.nextLine();
+			String xS = coordinatesS.split(",")[0];
+			String yS = coordinatesS.split(",")[1];
+			int rowS = Integer.parseInt(xS)-1;
+			int columnS = Integer.parseInt(yS)-1;
+			
+			if (clientP.Hit(rowS, columnS)) {
+				System.out.println("Hit!\n");
+				dataOutStream.writeUTF("Ship was hit at (" +row+","+column+")!");
+			} else {
+				System.out.println("Miss!\n");
+				dataOutStream.writeUTF(serverName+ "'s shot missed!");
+			}
+			
+			turn++;
+		}
+		
+		if (clientP.lost()) {
+			System.out.println(serverName+ " wins! Thanks for playing, exiting");
+			dataOutStream.writeUTF(serverName+ " wins! Thanks for playing, exiting");
+		} else {
+			System.out.println(clientResponse+ " wins! Thanks for playing, exiting");
+			dataOutStream.writeUTF(clientResponse+ " wins! Thanks for playing, exiting");
+		}
 	}
 }

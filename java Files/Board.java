@@ -32,11 +32,9 @@ public class Board {
        public boolean hit(int r, int c) {
     	   if(battleShipBoard[r][c].equals("S")) {
     		   battleShipBoard[r][c] = "X";
-    		   System.out.println("Hit!");
     		   return true;
     	   }
     	   else {
-    		   System.out.println("Miss!");
     		   return false;
     		   }
     	   }
@@ -107,10 +105,9 @@ public class Board {
        }
    
        public String toString() {
-    	   String returnString  = "";
-           System.out.println("   0   1   2   3   4   5   6   7");
+    	   String returnString  = "   1   2   3   4   5   6   7   8\n";
            for (int i=0;i<numRows;i++) {
-          	 	returnString += i+" ";
+          	 	returnString += i+1+" ";
                   for (int j = 0;j<numCols; j++) {
                   	   
                          returnString += "[" + battleShipBoard[i][j] + "] ";

@@ -29,13 +29,15 @@ public class Player {
 		return name;
 	}
 	
-	public void Hit(int r, int c) {
+	public boolean Hit(int r, int c) {
 		if(playerBoard.hit(r, c)) {
 			score--;
 			hitBoard.hitEmptyBoard(r, c);
+			return true;
 		}
 		else {
 			hitBoard.missEmptyBoard(r, c);
+			return false;
 		}
 	}
 	
