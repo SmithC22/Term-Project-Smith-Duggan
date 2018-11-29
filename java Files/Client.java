@@ -24,7 +24,7 @@ public class Client {
 			sentence = dataInputStream.readUTF();
 				System.out.println(sentence);
 				
-				if (sentence.charAt(0) != 'W') {
+				if ((sentence.charAt(0) != 'W') && (sentence.charAt(0) != 'H') && (sentence.charAt(0) != 'M') && (sentence.charAt(0) != 'S')) {
 				String words = input.nextLine();
 				dataOutStream.writeUTF(words);
 				}
