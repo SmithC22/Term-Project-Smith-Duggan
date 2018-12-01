@@ -32,8 +32,8 @@ public class Server1 {
 		DataInputStream dataInputStream2 = new DataInputStream(inputStream2);
 	
 
-			dataOutStream1.writeUTF("Found server. Enter your name: ");
-			dataOutStream2.writeUTF("Found server. Enter your name: ");
+			dataOutStream1.writeUTF("Enter your name: ");
+			dataOutStream2.writeUTF("Enter your name: ");
 			
 			String client1 = new String (dataInputStream1.readUTF());
 			String client2 = new String (dataInputStream2.readUTF());

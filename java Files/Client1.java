@@ -9,8 +9,10 @@ public class Client1 {
 		boolean streamOpen = true;
 		
 		// Open your connection to a server, at port 6789
-		String ip = "192.168.1.13";
+		System.out.print("Enter IP Address of server: ");
+		String ip = input.nextLine();
 		Socket socket = new Socket(ip,6790);
+		System.out.println("Connected with server.");
 		// Get an input file handle from the socket and read the input
 		InputStream inputStream = socket.getInputStream();
 		DataInputStream dataInputStream = new DataInputStream(inputStream);
