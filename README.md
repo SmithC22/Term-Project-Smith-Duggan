@@ -47,6 +47,7 @@ Caleb Smith
 
 # Demo
 * https://bit.ly/2rfa4cI or see BattleShipDemo.mp4
+* Note: Demo video is slightly out of date with current code. Demo video does not include code that asks clients to input server's IP address.
 
 # Comments
 1. Have a better formatting of the Time Table
