@@ -42,7 +42,7 @@ Caleb Smith
 # Features
 * Running a working battleship game on a client-server architecture
 * The server connects to two clients and sends them information and takes in names and ship-placements and uses other inputs from the clients to know where to 'fire' on the opponents board
-* Once one player loses all of thier ships, the server displays a message to each client stating who one, then closes the connection with each client.
+* Once one player loses all of their ships, the server displays a message to each client stating who one, then closes the connection with each client.
 
 # Demo
 * https://bit.ly/2rfa4cI or see BattleShipDemo.mp4
